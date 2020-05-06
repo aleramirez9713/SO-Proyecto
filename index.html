@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador</title>
+    <link rel='stylesheet'
+    href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="img/linux.png">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <html>
+
+    <head>
+        <title>Simulador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="icon" type="image/png" href="…">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">  
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+    <body>
+        <!--======Pixel Grid======-->
+        <div></div>
+        <div><i id="toggle-grid" class="fa fa-th"></i></div>
+        <!------------------------->
+        <!--======Push Menu======-->
+        <div class="container bar-cont">
+            <div class="row">
+                <div class="col-md-4 push-bar">
+                    <div class="creator pt-4 " style="border-right: 0.2rem solid black;">
+                        <h4 class="text-center">Instrucciones</h4>
+                        <div class="row">
+                            <table class="table table-hover tbale-sm">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Escribir la cantidad de ciclos a utilizar</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Dar click en el botón agregar</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Dar click en el botón simular</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 push-bar">
+                    <div class="creator pt-4 text-center" id="contenido-principal">
+                        <h6 id="alerta" style="color: red;"></h6>
+                        <input type="number" id="instrucciones" class="badge-pill py-2 px-2" placeholder="Ciclos"
+                            required min="1" max="999"><br>
+                        <button id="agregar" type="button" class="btn btn-lg btn-primary my-1 px-5 badge-pill"
+                            onclick="validarCampo();">Agregar</button><br>
+                        <button id="simular" type="button" class="btn btn-lg btn-success px-5 badge-pill" onclick="gestionarProcesosNuevos()" disabled>Simular</button>
+                    </div>
+                </div>
+                <div class="col-md-4 push-bar">
+                    <div class="creator pt-4 " style="border-left: 0.2rem solid black;">
+
+                        <h4 class="text-center">Estados</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-hover tbale-sm">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">0</th>
+                                            <td>Nuevo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Listo</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Ejecutando</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table class="table table-hover tbale-sm">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Bloqueado</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Finalizado</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 arrow"></div>
+            </div>
+        </div>
+        <!------------------------->
+        <!--========Cards========-->
+        <div class="container-fluid main-cont">
+            <div class="row news-row">
+                <div class="container-fluid col-md-12 col-sm-6 justify-content-center news-block">
+                    <h2 id="titulo" class="text-center badge-pill py-2" >Gestión de Procesos</h2>
+                    <div class="card-group" id="procesos">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------------------>
+        <!--=======Scripts======-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+        <script src="js/jquery.easypiechart.js"></script>
+        <script src="js/script.js"></script>    
+</body>
+
+</html>
